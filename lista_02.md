@@ -203,15 +203,15 @@ Compra 4 negada. Saldo insuficiente e limite de crédito excedido.
 
 **D)**
 
-Compra 1 aprovada. Saldo restante: 800
+**Compra 1 aprovada. Saldo restante: 800**
 
-Compra 2 aprovada. Saldo restante: 0
+**Compra 2 aprovada. Saldo restante: 0**
 
-Compra 3 aprovada com limite de crédito. Saldo restante: 200
+**Compra 3 aprovada com limite de crédito. Saldo restante: 200**
 
-Compra 4 negada. Saldo insuficiente e limite de crédito excedido.
+**Compra 4 negada. Saldo insuficiente e limite de crédito excedido.**
 
-Compra 5 negada. Saldo insuficiente e limite de crédito excedido.
+**Compra 5 negada. Saldo insuficiente e limite de crédito excedido.**
 
 ______
 
@@ -246,6 +246,17 @@ ______
 
 **7)** Implemente o pseudocódigo para o algoritmo representado no fluxograma da imagem.
 ![Uma imagem](assets/image.png)
+
+```
+var idade <- prompt('insira a sua idade')
+
+IF idade menor que 16:
+	console.log('Não pode votar')
+ELSE IF idade maior ou igual a 16 e menor que 18:
+	console.log('Voto facultativo')
+ELSE:
+	console.log('Voto obrigatório')
+```
 ______
 
 **8)** Considere a implementação da classe base FormaGeometrica em um sistema de modelagem de formas geométricas. Sua tarefa é implementar, utilizando pseudocódigo, as classes derivadas Retangulo e Circulo, que herdam da classe FormaGeometrica, adicionando atributos específicos e métodos para calcular a área de um retângulo e de um círculo, respectivamente.
@@ -261,6 +272,31 @@ Classe FormaGeometrica:
     Método CalcularArea():
         # Implementação genérica para cálculo de área, a ser sobrescrita pelas subclasses.
 
+Classe Retangulo extende FormaGeometrica:
+    Atributos:
+        - base
+        - altura
+        -cor
+    
+    Método construtor(cor, base, altura):
+        Pega o atributo cor da classe mãe FormaGeometrica, o qual recebe o valor passado como parâmetro
+        Define novos atributos de base e altura, que recebem valores passados como parâmetros
+
+    Método CalcularArea(base, altura):
+        return base*altura
+
+
+Classe Circulo extende FormaGeometrica:
+    Atributos:
+        -raio
+        -cor
+
+    Método construtor(cor, raio):
+        Pega o atributo cor da classe mãe FormaGeometrica, o qual recebe o valor passado como parâmetro
+        Define novo atributo raio, que recebe valor passado no parâmetro
+
+    Método CalcularArea(raio):
+        return pi*raio**2
 ```
 
 ______
@@ -272,6 +308,34 @@ Considere a fórumla de atualização velocidade:
     velocidade = velocidadeInicial + aceleracao*tempo
 ```
 
+**Resposta**
+```
+var velocidadeMax
+var velocidadeInicial
+var distanciaTotal
+var distanciaPercorrida
+var aceleracao
+var tempo <- 1
+var tempoMax
+
+Enquanto distanciaPercorrida é menor do que distanciaTotal:
+    se tempo é maior do que tempoMax:
+        imprimir('Tempo limite foi ultrapassado: recomeçar teste')
+        quebrar
+    senao:
+        se velocidade é menor do que velocidadeMax:
+            velocidade <- velocidadeInicial + aceleracao*tempo
+            distanciaPercorrida <- velocidadeInicial*tempo + aceleracao*0.5*t**2
+        se velocidade é igual a velocidadeMax:
+            velocidade <- velocidadeMax
+            distanciaPercorrida += velocidade * tempo
+        senao:
+            imprimir('velocidade limite ultrapassada: recomeçar teste')
+            quebrar
+        tempo ++
+
+Imprimir('A corrida durou '+ tempo + ' minutos')
+```
 ______
 
 **10)** Uma matriz é uma coleção bidimensional de elementos, organizados em linhas e colunas. A seguir, é fornecida a implementação da função SomaDeMatrizes(matrizA, matrizB), que calcula a soma de duas matrizes. Sua tarefa é implementar uma função semelhante, porém que realize a multiplicação de duas matrizes.
@@ -300,4 +364,37 @@ matrizB <- [[9, 8, 7], [6, 5, 4], [3, 2, 1]]
 matrizSoma <- SomaDeMatrizes(matrizA, matrizB)
 Escrever("Soma das matrizes:")
 ImprimirMatriz(matrizSoma)
+```
+**Resposta**
+```
+Função multiplicacaoDeMatrizes(matrizA, matrizB):
+    # Verifica se a quantidade de colunas da primeira matriz é igual a quantidade de linhas da segunda matriz
+    Se tamanho(matrizA[0]) ≠ tamanho(matrizB) então:
+        Retornar "As matrizes não podem ser multiplicadas."
+
+    Senão:
+        linhasA <- tamanho(matrizA)
+        linhasB <- tamanho(matrizB)
+        colunasA <- tamanho(matrizA[0])
+        colunasB <- tamanho(matrizB[0])
+        matrizResultado <- novaMatriz(linhasB, colunasA)
+
+        # Loop para percorrer cada elemento das matrizes e calcular a soma
+        Para i de 0 até linhasA-1 faça:
+            Para j de 0 até colunasB-1 faça:
+                Para k de 0 até colunasA-1 faça:
+                    matrizResultado += matrizA[i][k]*matriz[k][j]
+
+        Retornar matrizResultado
+
+
+
+
+# Exemplo de uso da função
+matrizA <- [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+matrizB <- [[9, 8, 7], [6, 5, 4], [3, 2, 1]]
+
+matrizMultiplicacao <- multiplicacaoDeMatrizes(matrizA, matrizB)
+Escrever("Multiplicação das matrizes:")
+ImprimirMatriz(matrizMultiplicacao)
 ```
