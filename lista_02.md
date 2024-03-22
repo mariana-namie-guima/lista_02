@@ -273,11 +273,12 @@ Classe FormaGeometrica:
         # Implementação genérica para cálculo de área, a ser sobrescrita pelas subclasses.
 
 Classe Retangulo extende FormaGeometrica:
-    Atributos:
+    Atributos próprios:
         - base
         - altura
-        -cor
-    
+    Atributos herdados:
+	- cor
+
     Método construtor(cor, base, altura):
         Pega o atributo cor da classe mãe FormaGeometrica, o qual recebe o valor passado como parâmetro
         Define novos atributos de base e altura, que recebem valores passados como parâmetros
@@ -287,8 +288,9 @@ Classe Retangulo extende FormaGeometrica:
 
 
 Classe Circulo extende FormaGeometrica:
-    Atributos:
+    Atributos próprios:
         -raio
+    Atributos herdados:
         -cor
 
     Método construtor(cor, raio):
@@ -386,9 +388,6 @@ Função multiplicacaoDeMatrizes(matrizA, matrizB):
                     matrizResultado += matrizA[i][k]*matriz[k][j]
 
         Retornar matrizResultado
-
-
-
 
 # Exemplo de uso da função
 matrizA <- [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
